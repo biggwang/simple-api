@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: deploy-simple-api
+  name: deploy-simple-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: po-simple-api
+  template:
+    metadata:
+      labels:
+        app: po-simple-api
+    spec:
+      containers:
+        - image: boriswinter/simple-api:1.0
+          name: deploy-simple-api
